@@ -1,24 +1,24 @@
 <?php
   class Product {
 
-    // we define 3 attributes
+//     we define 3 attributes
     public $id;
-    public $name;
-    public $price;
+    public $username;
+    public $blog_post;
 
-    public function __construct($id, $name, $price) {
+    public function __construct($id, $username, $blog_post) {
       $this->id    = $id;
-      $this->name  = $name;
-      $this->price = $price;
+      $this->username  = $username;
+      $this->blog_post = $blog_post;
     }
 
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM product');
+      $req = $db->query('SELECT * FROM posts');
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $product) {
-        $list[] = new Product($product['id'], $product['name'], $product['price']);
+        $list[] = new Product($product['ID'], $product['username_ID'], $product['blog_post']);
       }
       return $list;
     }
