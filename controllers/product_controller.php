@@ -37,7 +37,24 @@ class ProductController {
       }
       
     }
-    public function update() {
+    
+        public function create() {
+      // we expect a url of form ?controller=products&action=create
+      // if it's a GET request display a blank form for creating a new product
+      // else it's a POST so add to the database and redirect to readAll action
+      if($_SERVER['REQUEST_METHOD'] == 'GET'){
+          require_once('views/products/create.php');
+      }
+      else { 
+            Product::add();
+             
+            $products = Product::all(); //$products is used within the view
+            require_once('views/products/readAll.php');
+      }
+      
+    }
+    
+    public function register() {
         
       if($_SERVER['REQUEST_METHOD'] == 'GET'){
           if (!isset($_GET['id']))
@@ -58,6 +75,7 @@ class ProductController {
       }
       
     }
+    
     public function delete() {
             Product::remove($_GET['id']);
             
