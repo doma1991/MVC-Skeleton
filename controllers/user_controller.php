@@ -51,6 +51,5 @@ class UserController {
 }
 
 
-             require_once('views/users/myposts.php');
         
-    }
+    

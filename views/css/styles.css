@@ -220,3 +220,8 @@ p, a {
     width: 250px;
 }
 }
+
+#blog-name {
+    font-weight: bold;
+    font-size: 20px;
+}
