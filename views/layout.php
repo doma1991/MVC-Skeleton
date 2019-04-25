@@ -15,6 +15,9 @@
         <nav class="navbar navbar-expand-lg sticky-top" id="nav1">
             <div class="d-flex flex-grow-1">
                 <span class="w-100 d-lg-none d-block"></span>
+                 <a class="navbar-brand d-none d-lg-inline-block" href="#">
+                    Name and Logo
+                </a>
                 <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
                     Name and <img src="" alt="logo">
                 </a>
