@@ -1,7 +1,6 @@
 <center>
-    <h3>Add new post</h3>
+    <h3>Update your post</h3>
     <div class="paddedBlock">
-        <!--            <form>-->
         <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
             <p><h5>Update your blog below:<h5></p>
                     <div class="form-group">
@@ -27,14 +26,14 @@
                         echo "<img src='views/images/posts/' width='300' />";
                     }
                     ?>
-                    <br/><br><br>
+                    <br><br><br>
                     <input type="file" name="myUploader" class="btn btn-primary" />
                     <p><br><br>
-                        <input class="btn btn-primary" type="submit" value="Save all changes">
+                        <input class="btn btn-primary" type="submit" value="Save all changes" />
                     </p>
-                   </form>
-     </div>
-</center>
+                    </form>
+                    </div>
+                    </center>
 
 
 

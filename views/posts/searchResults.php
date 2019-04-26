@@ -1,4 +1,4 @@
-<div class="container" id="searchResults-cards-container"> <!--cards container -->
+<div class="container cards-container"> <!--cards container -->
     <div class="row">
         <div class="col">
             <h3>Your search results:</h3>
@@ -15,7 +15,7 @@
             <div class="col-md-3">
                 <a href='?controller=post&action=read&id=<?php echo $post->id; ?>'>
                     <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src='views\images\posts\<?php echo $post->title ?>.jpg' alt=""> <!-- CHECK IMAGE LINKS CONNECTION -->
+                        <img class="card-img-top" src='<?php echo $post->postImage ?>' alt=""> <!-- CHECK IMAGE LINKS CONNECTION -->
                         <div class="card-body">
                             <p class="card-text"><?php echo $post->title; ?></p>
                         </div>

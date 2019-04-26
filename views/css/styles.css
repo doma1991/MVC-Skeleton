@@ -183,8 +183,9 @@ p, a {
     inline-box-align: center;
 }
 
-#searchResults-cards-container {
-    padding-top: 40px;
+.cards-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 
@@ -224,4 +225,8 @@ p, a {
 #blog-name {
     font-weight: bold;
     font-size: 20px;
+}
+
+.readAll-buttons {
+    width: 90px;
 }
