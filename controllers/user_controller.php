@@ -27,7 +27,7 @@ class UserController {
     
      public function logout() {
         session_destroy();
-        require_once('views/posts/nav.php');
+        require_once('views/posts/navTwo.php');
         require_once('views/pages/home.php');
     }
 

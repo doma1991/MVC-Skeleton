@@ -21,34 +21,6 @@
                 </div>
             </div>
      
-            <?php
-        
-             
-            if (isset($_SESSION['userID'])) {
-//            
-                ?>
-                <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
-                    <ul class="navbar-nav ml-auto flex-nowrap">
-                      
-                        <li class="nav-item">
-                            <a href="?controller=pages&action=home" class="nav-link m-2 menu-item nav-active">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link m-2 menu-item nav-active">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link m-2 menu-item nav-active">My Posts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="?controller=user&action=logout" class="nav-link m-2 menu-item">Logout</a>
-                        </li>
-
-                    </ul>
-                </div>
-                <?php
-            } else {
-//            
-                ?>           
                 <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
                     <ul class="navbar-nav ml-auto flex-nowrap">
                         
@@ -64,9 +36,5 @@
 
                     </ul>
                 </div>
-                <?php
-            }
-            
-            ?>
 
         </nav>
