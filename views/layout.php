@@ -32,8 +32,8 @@
                 <div>
 
                     <div class="container text-align-left">
-                        <div class="row">
-                            <div class="col-sm-4 col-sm-offset-4 footer-columns">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-4 footer-columns">
 
                                 <h5 class="footer-headings">Blog</h5>
 
@@ -71,7 +71,7 @@
                         </div>
                     </div>   
                     <div class="container">
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <div class="col-xs">                   
                                 Copyright &COPY; Women In Tech <?= date('Y'); ?>. All rights reserved.
                             </div>
