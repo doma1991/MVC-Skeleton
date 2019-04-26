@@ -72,6 +72,8 @@ class PostController {
         require_once('views/posts/readAll.php');
     }
 
+  
+    
     public function searchResults() {
 //          if (isset($_GET['search'])) {
           $posts = Post::search($_POST['title']);
