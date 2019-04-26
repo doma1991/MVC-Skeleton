@@ -18,7 +18,9 @@ class PagesController {
       //example data to use in the home page
 //      $first_name = 'Lisa';
 //      $last_name  = 'Simpson';
+      require_once('views/posts/nav.php');
       require_once('views/pages/home.php');
+      
 
     }
     
@@ -28,7 +30,9 @@ class PagesController {
 //    }
 
     public function error() {
+      require_once('views/posts/nav.php');
       require_once('views/pages/error.php');
+      
     }
     
 }
