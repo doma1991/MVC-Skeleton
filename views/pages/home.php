@@ -28,7 +28,7 @@
     </div>
     <div class="row">
         <div class="col-md-3">
-            <a href='?controller=post&action=read&id=2'>
+            <a href='?controller=post&action=read&id=9'>
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="views\images\posts\Greenwich.jpg" alt="Photo of Greenwich ship">
                 <div class="card-body">
@@ -37,7 +37,7 @@
             </div></a>
         </div>
         <div class="col-md-3">
-             <a href='?controller=post&action=read&id=3'>
+             <a href='?controller=post&action=read&id=10'>
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="views\images\posts\ThePostalMuseum.jpg" alt="Photo of the Postal Museum">
                 <div class="card-body">
@@ -47,7 +47,7 @@
              </a>
         </div>
         <div class="col-md-3">
-             <a href='?controller=post&action=read&id=1'>
+             <a href='?controller=post&action=read&id=11'>
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="views\images\posts\TheO2.jpg" alt="Photo of the O2">
                 <div class="card-body">

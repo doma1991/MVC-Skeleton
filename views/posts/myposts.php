@@ -1,57 +1,44 @@
-<div class="container" id="cards-container"> 
+<div class="container cards-container text-center" style="margin-top:50px;"> <!--cards container -->
     <div class="row">
-        <div class="col">
-            <h3 style="margin-top:50px; margin-bottom:50px; text-align: center">My posts:</h3>
+        <div class="col-md-10">
+            <h3>Your posts:</h3> 
+        </div>
+        <div class="col-md-2">
+        <a href='?controller=post&action=create'>
+        <button class="btn">Add new</button>
+        </a>
+        </div>
+        
+            <?php
+           
+            if (!isset($myPosts)) {
+                echo  "<div class='col-10'><p>Item not found.</p>";
+                ?>
+            </div>
         </div>
     </div>
-     <?php      
-    if (!isset($myPosts)) {
-        echo "<p>Item not found.</p>";
-    }
-    else { ?>
-   <?php foreach ($myPosts as $post) { ?>
-    <div class="row">
-        <div class="col-md-3">
-            <a href='?controller=post&action=read&id=2'>
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src='views/images/posts/<?php echo $post->postImage; ?>' >
-                <div class="card-body">
-                    <p class="card-text"><?php echo $post->title; ?></p>
-                    <a href='?controller=post&action=update&id=2'>Update</a>
-                    <a href='?controller=post&action=delete&id=2'>Delete</a>
-                </div>
-            </div></a>
-        </div>
-        <div class="col-md-3">
-             <a href='?controller=post&action=read&id=3'>
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src='views/images/posts/<?php echo $post->postImage; ?>' >
-                <div class="card-body">
-                    <p class="card-text"><?php echo $post->title; ?></p>
-                    <a href='?controller=post&action=update&id=2'>Update</a>
-                    <a href='?controller=post&action=delete&id=2'>Delete</a>
-                </div>
-            </div>
-             </a>
-        </div>
-        <div class="col-md-3">
-             <a href='?controller=post&action=read&id=1'>
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src='views/images/posts/<?php echo $post->postImage; ?>' >
-                <div class="card-body">
-                    <p class="card-text"><?php echo $post->title; ?></p>
-                    <a href='?controller=post&action=update&id=1'>Update</a>
-                    <a href='?controller=post&action=delete&id=1'>Delete</a>
-                </div>
-            </div>
-             </a>
-        </div>
-       
-    </div>
-    <?php }} ?>
+
+
+<?php } else {
+    ?>
+</div>
 </div>
 
-       
-   
-    </body>
-</html>
+    <div class ="container cards-container">
+        <div class="row">
+            <?php foreach ($myPosts as $post) { ?>
+                <div class="col-md-3 cards-container">
+                    <a href='?controller=post&action=read&id=<?php echo $post->id; ?>'>
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src='views/images/posts/<?php echo $post->postImage ?>' alt="<?php echo $post->postImage?>"> <!-- CHECK IMAGE LINKS CONNECTION -->
+                            <div class="card-body">
+                                <p class="card-text"><?php echo $post->title; ?></p>
+                            </div>
+                        </div></a>
+                </div>        
+
+
+            <?php } ?>
+        </div>
+    </div>
+<?php } ?>
