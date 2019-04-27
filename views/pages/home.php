@@ -1,6 +1,6 @@
 <div class="container" id="home-page-top-container"> <!--page heading-->
     <div class="row">
-        <div class="col-10">
+        <div class="col-10" style='margin-top:30px'>
             <h1>Discover amazing things to do in London...</h1>
         </div>
         <div class="col-xs-1"></div>

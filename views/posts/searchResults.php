@@ -1,6 +1,6 @@
 <div class="container cards-container"> <!--cards container -->
     <div class="row">
-        <div class="col">
+        <div class="col" style="margin-top:50px; margin-bottom:50px; text-align: center">
             <h3>Your search results:</h3>
         </div>
     </div>

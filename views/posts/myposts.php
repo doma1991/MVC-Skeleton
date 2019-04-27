@@ -1,7 +1,7 @@
 <div class="container" id="cards-container"> 
     <div class="row">
         <div class="col">
-            <h3>My posts:</h3>
+            <h3 style="margin-top:50px; margin-bottom:50px; text-align: center">My posts:</h3>
         </div>
     </div>
      <?php      
@@ -14,7 +14,7 @@
         <div class="col-md-3">
             <a href='?controller=post&action=read&id=2'>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" <?php echo $post->postImage; ?> >
+                <img class="card-img-top" src='views/images/posts/<?php echo $post->postImage; ?>' >
                 <div class="card-body">
                     <p class="card-text"><?php echo $post->title; ?></p>
                     <a href='?controller=post&action=update&id=2'>Update</a>
@@ -25,7 +25,7 @@
         <div class="col-md-3">
              <a href='?controller=post&action=read&id=3'>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src=<?php echo $post->postImage; ?> >
+                <img class="card-img-top" src='views/images/posts/<?php echo $post->postImage; ?>' >
                 <div class="card-body">
                     <p class="card-text"><?php echo $post->title; ?></p>
                     <a href='?controller=post&action=update&id=2'>Update</a>
@@ -37,7 +37,7 @@
         <div class="col-md-3">
              <a href='?controller=post&action=read&id=1'>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src=<?php echo $post->postImage; ?> >
+                <img class="card-img-top" src='views/images/posts/<?php echo $post->postImage; ?>' >
                 <div class="card-body">
                     <p class="card-text"><?php echo $post->title; ?></p>
                     <a href='?controller=post&action=update&id=1'>Update</a>
