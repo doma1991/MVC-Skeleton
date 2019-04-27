@@ -32,16 +32,9 @@ class Post {
     public static function all() { //All function set into the array
         $list = [];
         $db = Db::getInstance(); //Instantiates database connection - once 'item' is loaded then starts the connection
-        $req = $db->query('SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username FROM user
-as u
-inner JOIN
-user_post
-as up
-on u.userID=up.userID
-inner JOIN
-post
-as p
-on up.postID=p.postID');
+        
+        $req = $db->query("SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username FROM user as u inner JOIN user_post as up on u.userID=up.userID inner JOIN post as p on up.postID=p.postID");
+        //$req = $db->query('CALL readAll();');
         // we create a list of Product objects from the database results
         foreach ($req->fetchAll() as $blogPost) { //NEED TO CHANGE FETCH ALL
             $list[] = new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']);
@@ -212,6 +205,7 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         
         if (empty($posts)) {
             return null;
+//       return "No results for $title.";
         } else {
             return $posts;
         }

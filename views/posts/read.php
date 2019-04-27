@@ -13,7 +13,7 @@
 
             </div>
 
-            <div <div class="col-sm-4"> align="right">
+            <div class="col-sm-4"> 
 
                 <?php
                 $file = 'views/images/posts/' . $post->postImage;

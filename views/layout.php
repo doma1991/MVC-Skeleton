@@ -36,7 +36,7 @@
                                 <h5 class="footer-headings">Blog</h5>
 
                                 <ul class="list-unstyled">
-                                    <li><a href="../MVC-Skeleton/index.php#" class="footer-writing">Homepage</a></li>
+                                    <li><a href="?controller=pages&action=home" class="footer-writing">Homepage</a></li>
                                     <li><a href="#" class="footer-writing">Top Stories This Week</a></li>
                                     <li><a href="#" class="footer-writing">Legal Terms</a></li>
                                 </ul>
