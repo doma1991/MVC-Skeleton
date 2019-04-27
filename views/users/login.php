@@ -1,4 +1,4 @@
-<script>    
+<!--<script>    
 function login(){
         
         var xmlhttp = new XMLHttpRequest(); // new HTTP request
@@ -15,7 +15,7 @@ function login(){
             
         };
 
-</script>
+</script>-->
 
 <?php
 if (isset($ex)) {

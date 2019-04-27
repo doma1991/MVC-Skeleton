@@ -51,10 +51,11 @@ footer {
 /*        padding-left: 100px;
         padding-right: 100px;*/
     width: 400px;
-    float: none;
+/*    float: none; 
     margin-right: auto;
-    margin-left: auto;
+    margin-left: 10px; */
 }
+
 
 .footer-headings {
     background-color: #495057;  
@@ -174,7 +175,7 @@ p, a {
 }
 
 .w3-container {
-    min-height: 70vh;
+    min-height: 80vh;
 }
 
 #dinosaur{
@@ -229,4 +230,9 @@ p, a {
 
 .readAll-buttons {
     width: 90px;
+}
+
+.navbar {
+    margin-left: -16px;
+    margin-right: -16px;
 }
