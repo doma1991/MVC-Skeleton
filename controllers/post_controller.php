@@ -115,4 +115,35 @@ class PostController {
             }
         
     }
+    
+        public function favourites() {
+        // we expect a url of form ?controller=posts&action=show&id=x
+        // without an id we just redirect to the error page as we need the post id to find it in the database
+//        try {
+//            // we use the given id to get the correct post
+//            $post = Post::find($_GET['id']); // similar to readAll - get ID and display in viewer
+//            require_once('views/posts/nav.php');
+//            require_once('views/posts/read.php');
+//            
+//        } catch (Exception $ex) { //AMEND - to return getMessage, getLine for the back end
+//            return call('pages', 'error');
+//        }
+//    }
 }
+
+public function topStories() {
+//            $posts = Post::topStories(); //relates in Line 15 in model/product - therefore instantiates new product class
+//            
+//        $topList1 = array_rand($posts);
+//        $topList2 = array_rand($posts);
+//        $topList3 = array_rand($posts);
+//        $randomTopList = array($topList1, $topList2, $topList3);
+//            
+//        require_once('views/posts/nav.php');
+//        require_once('views/pages/home.php'); 
+}
+
+}
+
+        
+        

@@ -227,9 +227,46 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         } else {
             return $posts;
         }
-    
-   }
+            
+}
+
+public static function favourites($id) {
+        $db = Db::getInstance(); //Connects to database through already established connection
+        //use intval to make sure $id is an integer
+        $id = intval($id); //validates that ID is actually an integer - returns integer value of the variable
+        $req = $db->prepare('SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username FROM user as u
+inner JOIN
+user_post
+as UP
+on u.userID=up.userID
+inner JOIN
+post
+as p
+on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns all values WHERE postID = :postID
+        //the query was prepared, now replace :id with the actual $id value
+        $req->execute(array('postID' => $id)); //array of results
+        $blogPost = $req->fetch(); //assigns results to product
+        if ($blogPost) { //if Post exists create new class
+            return new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']); //AMEND as not testing for anything useful 
+        } else {
+            //replace with a more meaningful exception
+            throw new Exception('A real exception should go here'); //AMEND to 'product does not exist etc.'
+        }  
+}
+
+    public static function topStories() { //All function set into the array
+//        $list = [];
+//        $db = Db::getInstance(); //Instantiates database connection - once 'item' is loaded then starts the connection
+//        
+//        $req = $db->query("SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username FROM user as u inner JOIN user_post as up on u.userID=up.userID inner JOIN post as p on up.postID=p.postID");
+//        //$req = $db->query('CALL readAll();');
+//        // we create a list of Product objects from the database results
+//        foreach ($req->fetchAll() as $blogPost) { //NEED TO CHANGE FETCH ALL
+//            $list[] = new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']);
+//        }
+//return $list;
+    }
+
 }
 
 //}
-?>

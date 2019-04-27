@@ -19,7 +19,7 @@
         </div>
     </form>   
 </div> 
-
+        
 <div class="container" id="cards-container"> <!--cards container -->
     <div class="row">
         <div class="col">
