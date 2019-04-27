@@ -29,11 +29,9 @@
 
             <div class="navbar sticky-bottom"> <!-- use 'sticky/fixed' to move it with scrolling-->
 
-                <div>
-
                     <div class="container text-align-left">
                         <div class="row justify-content-center">
-                            <div class="col-sm-4 footer-columns">
+                            <div class="col-sm-4 footer-columns" id="firstFooterColumn">
 
                                 <h5 class="footer-headings">Blog</h5>
 
@@ -77,7 +75,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </footer>
         <!--end of footer-->

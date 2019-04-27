@@ -51,10 +51,11 @@ footer {
 /*        padding-left: 100px;
         padding-right: 100px;*/
     width: 400px;
-/*    float: none;
+/*    float: none; 
     margin-right: auto;
-    margin-left: auto;*/
+    margin-left: 10px; */
 }
+
 
 .footer-headings {
     background-color: #495057;  
