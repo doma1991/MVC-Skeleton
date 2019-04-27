@@ -60,6 +60,23 @@ class UserController {
       require_once('views/pages/home.php');
       
     }
+    
+//    public function myPosts() {
+//        
+//            try {
+//                $myPosts = User::myPosts($_SESSION['userID']);
+//                require_once('views/posts/nav.php');
+//                require_once('views/pages/myPosts.php'); //go to the homepage
+//                
+//              
+//                
+//            } catch (Exception $ex) {
+//                require_once('views/posts/nav.php');
+//                require_once('views/users/login.php'); //if user doesn't exist, stay in login to enter data again   
+//                
+//            }
+//        
+//    }
 }
 
 
