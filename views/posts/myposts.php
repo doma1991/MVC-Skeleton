@@ -4,6 +4,12 @@
             <h3>My posts:</h3>
         </div>
     </div>
+     <?php      
+    if (!isset($myPosts)) {
+        echo "<p>Item not found.</p>";
+    }
+    else { ?>
+   <?php foreach ($myPosts as $post) { ?>
     <div class="row">
         <div class="col-md-3">
             <a href='?controller=post&action=read&id=2'>
@@ -42,6 +48,7 @@
         </div>
        
     </div>
+    <?php }} ?>
 </div>
 
        
