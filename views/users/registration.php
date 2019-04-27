@@ -6,7 +6,7 @@
                 <h2>Register</h2>
             </div>
         </div>
-        <form id="registrationForm" name="registrationForm" action="" method="POST">
+        <form id="registrationForm" name="registrationForm" action="?controller=user&action=registration" onsubmit="return checkPassword()" method="POST">
             <div class="row justify-content-center">
                 <div class="col-md-3" id="firstName">
                     <p>
@@ -57,7 +57,7 @@
                 <div class="col-md-3">
                     <p>
                         <label class="login-text-username">Confirm password:</label>
-                        <input class="w3-input login-input" type="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,20}$" title="Password must be at least 4 characters and must include at least one upper case letter, one lower case letter, and one number." required>
+                        <input class="w3-input login-input" type="password" name="confirm-password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,20}$" title="Password must be at least 4 characters and must include at least one upper case letter, one lower case letter, and one number." required>
                     </p>
                 </div>
             </div>
@@ -83,3 +83,21 @@
         </form>
     </div>
 </div>
+
+<script>
+function checkPassword()
+{
+    $password = document.forms["registrationForm"]["password"].value;  
+    $confirmation = document.forms["registrationForm"]["confirm-password"].value;
+    if($password !== $confirmation)
+    {
+        alert("Passwords do not match"); 
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+     
+}
+</script>
