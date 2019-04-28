@@ -36,6 +36,7 @@
                             </div>
                         </div></a>
                 </div>  
+            
             <div class="col-xs-4">
                <a href='?controller=post&action=update&id=<?php echo $post->id; ?>'>
            <button type="submit" class="btn btn-primary readAll-buttons">Update</button>
