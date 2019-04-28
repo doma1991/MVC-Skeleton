@@ -236,3 +236,26 @@ p, a {
     margin-left: -16px;
     margin-right: -16px;
 }
+#post-body {
+     padding-top: 20px;
+     color: #495057;
+}
+
+#post-tag {
+   padding-top: 20px;
+   padding-bottom: 20px;
+   right: 50px;
+   bottom: 20px;
+     color: #F0F4F8; 
+}
+
+#post-pic {
+    padding-top: 40px;
+    padding-bottom: 12px;
+}
+
+#date{
+   padding-top: 30px;
+   margin-bottom: 30px;
+  color: #495057;
+}

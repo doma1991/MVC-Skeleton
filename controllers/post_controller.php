@@ -113,6 +113,6 @@ class PostController {
                 require_once('views/users/login.php'); //if user doesn't exist, stay in login to enter data again   
                 
             }
-        
     }
+            
 }

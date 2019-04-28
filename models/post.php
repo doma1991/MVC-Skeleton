@@ -18,8 +18,9 @@ class Post {
     public $date;
     public $postImage;
     public $username;
+    public $tagName;
 
-    public function __construct($id, $title, $tag, $content, $date, $postImage, $username) {
+    public function __construct($id, $title, $tag, $content, $date, $postImage, $username, $tagName) {
         $this->id = $id;
         $this->title = $title;
         $this->tag = $tag;
@@ -27,6 +28,7 @@ class Post {
         $this->date = $date;
         $this->postImage = $postImage;
         $this->username = $username;
+        $this->tagName = $tagName;
     }
 
     public static function all() { //All function set into the array
@@ -47,7 +49,7 @@ class Post {
         $db = Db::getInstance(); //Connects to database through already established connection
         //use intval to make sure $id is an integer
         $id = intval($id); //validates that ID is actually an integer - returns integer value of the variable
-        $req = $db->prepare('SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username FROM user as u
+        $req = $db->prepare('SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username, tag.tagName FROM user as u
 inner JOIN
 user_post
 as UP
@@ -55,12 +57,12 @@ on u.userID=up.userID
 inner JOIN
 post
 as p
-on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns all values WHERE postID = :postID
+on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :postID'); //where ID matches - returns all values WHERE postID = :postID
         //the query was prepared, now replace :id with the actual $id value
         $req->execute(array('postID' => $id)); //array of results
         $blogPost = $req->fetch(); //assigns results to product
         if ($blogPost) { //if Post exists create new class
-            return new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']); //AMEND as not testing for anything useful 
+            return new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username'], $blogPost['tagName']); //AMEND as not testing for anything useful 
         } else {
             //replace with a more meaningful exception
             throw new Exception('A real exception should go here'); //AMEND to 'product does not exist etc.'
@@ -229,7 +231,8 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         }
     
    }
-}
+   
+  
 
-//}
+}
 ?>
