@@ -8,6 +8,7 @@
 
 
 
+
 <div class="container">
     <div class="row  justify-content-left"> 
         <?php foreach ($posts as $post) { ?>

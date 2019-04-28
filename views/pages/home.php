@@ -1,7 +1,29 @@
+<script>    
+function login(){
+        
+        var xmlhttp = new XMLHttpRequest(); // new HTTP request
+        xmlhttp.onreadystatechange = function() {  // annonymous function for processing once the request is returned
+            if (this.readyState == 4 && this.status == 200) {
+                
+                document.getElementById("a").innerHTML = this.responseText;
+
+            } else {
+                document.getElementById("a").innerHTML = "no response";
+            }
+            
+        };
+        xmlhttp.open('GET', 'empty.php?ok=a'); // making the HTTP request - function is asigned a key value pair of choice - read by _REQUEST superglobal - and added the strChoice argument
+        xmlhttp.send();   // sending the HTTP request
+            
+        };
+
+</script>
+
+
 <div class="container" id="home-page-top-container"> <!--page heading-->
     <div class="row">
         <div class="col-10" style='margin-top:30px'>
-            <h1>Discover amazing things to do in London...</h1>
+            <h1><span onclick="login()">Discover amazing things to do in London...</span></h1>
         </div>
         <div class="col-xs-1"></div>
     </div>
@@ -15,6 +37,7 @@
             </div>
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary" value="search">Search</button>
+                <p><span id="a"></span></p>
             </div>
         </div>
     </form>   

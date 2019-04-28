@@ -67,46 +67,27 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         }
     }
 
-    public static function update($id) {
+    public static function update($id, $title, $content, $postImage, $tag) {
         $db = Db::getInstance();
-        $req = $db->prepare("Update post set title=:title, tagID=:tag, content=:content, date=:date, postImage=:postImage where postID=:id"); //prepare statement 
+        $req = $db->prepare("Update post set title=:title, tagID=:tag, content=:content, postImage=:postImage where postID=:id"); //prepare statement 
         $req->bindParam(':id', $id); //binds $ID to ID column
         $req->bindParam(':title', $title); //binds $name to name column
         $req->bindParam(':content', $content); //binds $price to price column
-        $req->bindParam(':date', $date);
         $req->bindParam(':postImage', $postImage);
         $req->bindParam(':tag', $tag);
         //binding allows the variable to be used rather than retyping prepare statement each time
 // set name and price parameters and execute
-
-        if (isset($_POST['title']) && $_POST['title'] != "") { //{!= 'not' i.e. is not equal to something}. Therefore post cannot be empty.
-            $filteredTitle = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS); //validation of post i.e. not using SELECT*FROM as a name
-        }
-        if (isset($_POST['content']) && $_POST['content'] != "") {
-            $filteredContent = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
-        if (isset($_POST['postImage']) && $_POST['postImage'] != "") {
-            $filteredPostImage = filter_input(INPUT_POST, 'postImage', FILTER_SANITIZE_SPECIAL_CHARS);
-        } // else? not update? DECIDE
-        if (isset($_POST['tag']) && $_POST['tag'] != "") {
-            $filteredTag = filter_input(INPUT_POST, 'tag', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
-
-
-        $title = $filteredTitle;
-        $content = $filteredContent;
-        $postImage = $filteredPostImage;
-        $tag = $filteredTag;
-        $date;
-
+        $postImage =  $title . '.jpeg';
         $req->execute();
 
 
 //upload product image if it exists - enabling us to update the image
-        if (!empty($_FILES[self::InputKey]['title'])) { //Self refers to itself in the class
-            Product::uploadFile($title); //If the superglobal file is not empty, then assign constant inputkey name
-        } //Product::uploadFile is calling upon uploadfile function and does the error checking
-    }
+//        if (!empty($_FILES[self::InputKey]['title'])) { //Self refers to itself in the class
+//            Product::uploadFile($title); //If the superglobal file is not empty, then assign constant inputkey name
+//        } //Product::uploadFile is calling upon uploadfile function and does the error checking
+   
+        Post::uploadFile($title);
+   }
 
     public static function add($title, $content, $tag) {
         $db = Db::getInstance();
@@ -114,10 +95,11 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         $req->bindParam(':title', $title); //binds $name to name column
         $req->bindParam(':tag', $tag);
         $req->bindParam(':content', $content); //binds $price to price column
-        //print_r($_FILES);
-        $path = "views/images/posts/"; //AMEND to folder structure
-        $postImage = $path . $title . '.jpeg';
         $req->bindParam(':postImage', $postImage);
+        //print_r($_FILES);
+        $path = ""; //AMEND to folder structure
+        $postImage = $path . $title . '.jpeg';
+
 
 // set parameters and execute
         if (isset($_POST['title']) && $_POST['title'] != "") { //{!= 'not' i.e. is not equal to something}. Therefore post cannot be empty.
@@ -126,9 +108,9 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         if (isset($_POST['content']) && $_POST['content'] != "") {
             $filteredContent = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
         }
-        //    if(isset($_POST['postImage'])&& $_POST['postImage']!=""){
-        //    $filteredPostImage = filter_input(INPUT_POST,'postImage', FILTER_SANITIZE_SPECIAL_CHARS);
-        //}
+//            if(isset($_POST['postImage'])&& $_POST['postImage']!=""){
+//            $filteredPostImage = filter_input(INPUT_POST,'postImage', FILTER_SANITIZE_SPECIAL_CHARS);
+//        }
         if (isset($_POST['tag']) && $_POST['tag'] != "") {
             $filteredTag = filter_input(INPUT_POST, 'tag', FILTER_SANITIZE_SPECIAL_CHARS);
         }
@@ -139,8 +121,11 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         $tag = $filteredTag;
 
         $req->execute();
-
-//upload product image
+        $newPostId = $db->lastInsertId();
+        $req = $db->prepare("INSERT INTO user_post (postID, userID) VALUES (:postID, :userID)");
+        $req->bindParam(':postID', $newPostId);
+        $req->bindParam(':userID', $_SESSION['userID']);
+        $req->execute();
 
         Post::uploadFile($title);
     }

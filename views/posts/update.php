@@ -8,8 +8,8 @@
                         <input class="form-control" type="text" name="title" autofocus value="<?= $post->title; ?>"/>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="contentid">Content</label>
-                        <input class="form-control" id="contentid" type="text" name="content" value="<?= $post->content; ?>"/>
+                        <label class="control-label" for="content">Content</label>
+                        <textarea name="content"><?= $post->content; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Tag:</label>

@@ -28,14 +28,28 @@
         <div class="row">
             <?php foreach ($myPosts as $post) { ?>
                 <div class="col-md-3 cards-container">
+                    <div class="row">
                     <a href='?controller=post&action=read&id=<?php echo $post->id; ?>'>
                         <div class="card" style="width: 18rem;">
                             <img class="card-img-top" src='views/images/posts/<?php echo $post->postImage ?>' alt="<?php echo $post->postImage?>"> <!-- CHECK IMAGE LINKS CONNECTION -->
                             <div class="card-body">
                                 <p class="card-text"><?php echo $post->title; ?></p>
                             </div>
-                        </div></a>
-                </div>        
+                        </div>
+                    </div></a>
+                        <div class="row justify-content-between" style="width: 18rem;">
+                            <div class="col-xs-4">
+                               <a href='?controller=post&action=update&id=<?php echo $post->id; ?>'>
+           <button type="submit" class="btn btn-primary readAll-buttons">Update</button>
+               </a> 
+                            </div>
+                            <div class="col-xs-4 col-">
+                              <a href='?controller=post&action=delete&id=<?php echo $post->id; ?>'>
+           <button type="submit" class="btn btn-primary readAll-buttons">Delete</button>
+               </a>  
+                            </div>
+                        </div>
+                </div> 
 
 
             <?php } ?>
