@@ -34,7 +34,7 @@
                             <a href="?controller=pages&action=home" class="nav-link m-2 menu-item nav-active">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link m-2 menu-item nav-active">Profile</a>
+                            <a href="?controller=user&action=readProfile&userID=<?= $_SESSION['userID']?>" class="nav-link m-2 menu-item nav-active">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a href="?controller=post&action=myposts" class="nav-link m-2 menu-item nav-active">My Posts</a>
