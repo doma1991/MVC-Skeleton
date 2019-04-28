@@ -115,7 +115,7 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         $req->bindParam(':tag', $tag);
         $req->bindParam(':content', $content); //binds $price to price column
         //print_r($_FILES);
-        $path = "views/images/posts/"; //AMEND to folder structure
+        $path = ""; //AMEND to folder structure
         $postImage = $path . $title . '.jpeg';
         $req->bindParam(':postImage', $postImage);
 
@@ -139,8 +139,11 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         $tag = $filteredTag;
 
         $req->execute();
-
-//upload product image
+        $newPostId = $db->lastInsertId();
+        $req = $db->prepare("INSERT INTO user_post (postID, userID) VALUES (:postID, :userID)");
+        $req->bindParam(':postID', $newPostId);
+        $req->bindParam(':userID', $_SESSION['userID']);
+        $req->execute();
 
         Post::uploadFile($title);
     }
