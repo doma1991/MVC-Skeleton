@@ -114,10 +114,11 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         $req->bindParam(':title', $title); //binds $name to name column
         $req->bindParam(':tag', $tag);
         $req->bindParam(':content', $content); //binds $price to price column
+        $req->bindParam(':postImage', $postImage);
         //print_r($_FILES);
         $path = "views/images/posts/"; //AMEND to folder structure
         $postImage = $path . $title . '.jpeg';
-        $req->bindParam(':postImage', $postImage);
+
 
 // set parameters and execute
         if (isset($_POST['title']) && $_POST['title'] != "") { //{!= 'not' i.e. is not equal to something}. Therefore post cannot be empty.
@@ -126,9 +127,9 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         if (isset($_POST['content']) && $_POST['content'] != "") {
             $filteredContent = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
         }
-        //    if(isset($_POST['postImage'])&& $_POST['postImage']!=""){
-        //    $filteredPostImage = filter_input(INPUT_POST,'postImage', FILTER_SANITIZE_SPECIAL_CHARS);
-        //}
+//            if(isset($_POST['postImage'])&& $_POST['postImage']!=""){
+//            $filteredPostImage = filter_input(INPUT_POST,'postImage', FILTER_SANITIZE_SPECIAL_CHARS);
+//        }
         if (isset($_POST['tag']) && $_POST['tag'] != "") {
             $filteredTag = filter_input(INPUT_POST, 'tag', FILTER_SANITIZE_SPECIAL_CHARS);
         }

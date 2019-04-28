@@ -3,7 +3,6 @@
 
 </div>
 <div class="paddedBlock">
-    <form>
     <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
         <p><h5>Fill in the following form to create a new post:</h5></p>
     <div class="form-group">
@@ -12,7 +11,7 @@
     </div>
     <div class="form-group">
         <label class="control-label" for="contentid"><p><h6>Content of your post:</h6></p></label>
-        <textarea id="contentid"><?= $post->content; ?></textarea>
+        <textarea id="contentid" type="text" name="content"></textarea>
     </div>
     <div class="form-group">
         <label class="control-label"><p><h6>Tag:</h6></p></label>
