@@ -9,7 +9,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="contentid">Content</label>
-                        <input class="form-control" id="contentid" type="text" name="content" value="<?= $post->content; ?>"/>
+                        <textarea id="contentid"><?= $post->content; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Tag:</label>
