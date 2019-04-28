@@ -113,8 +113,11 @@ class PostController {
                 require_once('views/users/login.php'); //if user doesn't exist, stay in login to enter data again   
                 
             }
-        
     }
+<<<<<<< HEAD
+            
+}
+=======
     
         public function favourites() {
         // we expect a url of form ?controller=posts&action=show&id=x
@@ -147,3 +150,4 @@ public function topStories() {
 
         
         
+>>>>>>> 979a51c25fa18e0f38aa76e30e32f4b9b76cc865

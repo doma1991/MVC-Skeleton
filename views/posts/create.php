@@ -13,11 +13,20 @@
         <textarea type="text" id="contentid" name="content"></textarea>
     </div>
     <div class="form-group">
-        <label class="control-label"><p><h6>Tag:</h6></p></label>
-        <input class="form-control" type="text" name="tag"/>
-    </div><br>
-    <center>
-        <div>
+
+        <label class="control-label">Tag:</label>
+       <select name="tag">
+                            <option value="outdoors">Outdoors</option>
+                            <option value="easter">Easter</option>
+                            <option value="indoors">Indoors</option>
+                            <option value="cheap">Cheap</option>
+                            <option value="london">London</option>
+                            <option value="family">Family</option>
+                        </select>
+        <input class="form-control" type="submit" name="tag"/>
+    </div>
+    <div>
+
       <input type="hidden" 
                name="MAX_FILE_SIZE" 
              value="10000000"
