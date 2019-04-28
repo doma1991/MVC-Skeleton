@@ -74,19 +74,17 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
         $req->bindParam(':content', $content); //binds $price to price column
         $req->bindParam(':postImage', $postImage);
         $req->bindParam(':tag', $tag);
-        //binding allows the variable to be used rather than retyping prepare statement each time
-// set name and price parameters and execute
+
         $postImage = $title . '.jpeg';
-        $req->execute();
-
-
-//upload product image if it exists - enabling us to update the image
-//        if (!empty($_FILES[self::InputKey]['title'])) { //Self refers to itself in the class
-//            Product::uploadFile($title); //If the superglobal file is not empty, then assign constant inputkey name
-//        } //Product::uploadFile is calling upon uploadfile function and does the error checking
-
+   
+        
         Post::uploadFile($title);
+        
+      
+        
     }
+    
+    
 
     public static function add($title, $content, $tag) {
         $db = Db::getInstance();
