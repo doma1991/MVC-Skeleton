@@ -68,7 +68,7 @@ class PostController {
         }
         else {
             $id = $_GET['id'];
-            Post::update($id);
+            Post::update($id, $_POST['title'], $_POST['content'], $_POST['title'], $_POST['tag']);
 
             $posts = Post::all();
             require_once('views/posts/nav.php');

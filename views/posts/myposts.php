@@ -35,7 +35,17 @@
                                 <p class="card-text"><?php echo $post->title; ?></p>
                             </div>
                         </div></a>
-                </div>        
+                </div>  
+            <div class="col-xs-4">
+               <a href='?controller=post&action=update&id=<?php echo $post->id; ?>'>
+           <button type="submit" class="btn btn-primary readAll-buttons">Update</button>
+               </a>
+           </div>
+           <div class="col-xs-4">
+               <a href='?controller=post&action=delete&id=<?php echo $post->id; ?>'>
+           <button type="submit" class="btn btn-primary readAll-buttons">Delete</button>
+               </a>
+           </div>
 
 
             <?php } ?>
