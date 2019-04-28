@@ -77,11 +77,8 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
 
         $postImage = $title . '.jpeg';
    
-        
         Post::uploadFile($title);
-        
-      
-        
+ 
     }
     
     
