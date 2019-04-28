@@ -22,7 +22,6 @@
                         <label class="control-label">Phone number:</label>
                          <input class="form-control" type="text" name="phoneNumber" value="<?= $user->phoneNumber; ?>" />
                     </div>
-                    
                     <p><br><br>
                         <input class="btn btn-primary" type="submit" value="Save all changes"/>
                     </p>

@@ -1,17 +1,17 @@
-<center>
-    <h3 style="margin-top: 50px">Update your post</h3>
+<center><h3 style="margin-top: 50px">Update your post</h3></center>
     <div class="paddedBlock">
         <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label class="control-label">Title:</label>
+                        <label class="control-label"><h6>Title:</h6></label>
                         <input class="form-control" type="text" name="title" autofocus value="<?= $post->title; ?>"/>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="content">Content</label>
+                        <label class="control-label" for="content"><h6>Content</h6></label>
                         <textarea name="content" id="contentid"><?= $post->content; ?></textarea>
                     </div>
+            <center>
                     <div class="form-group">
-                        <label class="control-label">Tag:</label>
+                        <label class="control-label"><h6>Tag:</h6></label>
                         <select name="tag">
                             <option value="1">Outdoors</option>
                             <option value="2">Easter</option>
@@ -38,9 +38,10 @@
                     <p><br><br>
                         <input class="btn btn-primary" type="submit" value="Save all changes" />
                     </p>
+            </center>
                     </form>
                     </div>
-                    </center>
+                   
 
 
 
