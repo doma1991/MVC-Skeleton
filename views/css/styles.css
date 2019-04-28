@@ -227,7 +227,7 @@ p, a {
     width: 535px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
 .register-long-input {
     width: 250px;
 }
@@ -248,31 +248,27 @@ p, a {
 }
 
 #post-body {
-     padding-top: 20px;
-     color: #495057;
+    color: #495057;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 #post-tag {
-   padding-top: 20px;
-   padding-bottom: 20px;
-   right: 50px;
-   bottom: 20px;
-     color: #F0F4F8; 
-}
-
-#post-pic {
-    padding-top: 40px;
-    padding-bottom: 12px;
+/*   padding-top: 20px;
+   padding-bottom: 20px;*/
+/*   right: 50px;
+   bottom: 20px;*/
+   color: #F0F4F8; 
+   padding-right: 50px;
+   padding-left: 50px;
 }
 
 #date{
-   padding-top: 30px;
-   margin-bottom: 30px;
   color: #495057;
 }
 
 
-#share-buttons img {
+.share-buttons {
 width: 35px;
 padding: 5px;
 border: 0;
@@ -284,3 +280,49 @@ display: inline;
     margin-left: -180px;
 }
 
+#username-row {
+/*    padding-top: -100px;*/
+}
+
+#read-page {
+    padding-top: 60px;
+}
+
+#content-row {
+    padding-top: 20px;
+}
+
+#date-row {
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+#username {
+     color: #495057; 
+     font-weight: bold;
+}
+
+#image {
+    border-radius: 5px;
+}
+
+#copy {
+  font-size:12px; 
+  margin-left: 310px;
+}
+
+#nav-margin {
+    margin-left: 200px; 
+    margin-top:50px;
+}
+
+@media only screen and (max-width: 600px) {
+#copy {
+      margin-left: 0px;
+}
+
+#nav-margin {
+    margin-left: 0px; 
+    margin-top: 0px;
+}
+}

@@ -1,4 +1,4 @@
-<script>    
+<!--<script>    
 function login(){
         
         var xmlhttp = new XMLHttpRequest(); // new HTTP request
@@ -17,13 +17,13 @@ function login(){
             
         };
 
-</script>
+</script>-->
 
 
 <div class="container" id="home-page-top-container"> <!--page heading-->
     <div class="row">
         <div class="col-10" style='margin-top:30px'>
-            <h1><span onclick="login()">Discover amazing things to do in London...</span></h1>
+            <h1>Discover amazing things to do in London...</h1>
         </div>
         <div class="col-xs-1"></div>
     </div>
@@ -42,7 +42,11 @@ function login(){
         </div>
     </form>   
 </div> 
-        
+     <?php 
+        require_once('models/post.php');
+        $posts = Post::topStories(); //relates in Line 15 in model/product - therefore instantiates new product class            
+        shuffle($posts);
+     ?>
 <div class="container" id="cards-container"> <!--cards container -->
     <div class="row">
         <div class="col">
@@ -50,35 +54,17 @@ function login(){
         </div>
     </div>
     <div class="row">
+                <?php foreach (array_slice($posts, 1, 3) as $post) {  ?>
         <div class="col-md-3">
-            <a href='?controller=post&action=read&id=9'>
+            <a href='?controller=post&action=read&id=<?php echo $post->id; ?>'>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="views\images\posts\Greenwich.jpg" alt="Photo of Greenwich ship">
+                <img class="card-img-top" src='views/images/posts/<?php echo $post->postImage ?>' alt="<?php echo $post->postImage?>">
                 <div class="card-body">
-                    <p class="card-text">Greenwich</p>
+                    <p class="card-text"><?php echo $post->title; ?></p>
                 </div>
             </div></a>
         </div>
-        <div class="col-md-3">
-             <a href='?controller=post&action=read&id=10'>
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="views\images\posts\ThePostalMuseum.jpg" alt="Photo of the Postal Museum">
-                <div class="card-body">
-                    <p class="card-text">The Postal Museum</p>
-                </div>
-            </div>
-             </a>
-        </div>
-        <div class="col-md-3">
-             <a href='?controller=post&action=read&id=11'>
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="views\images\posts\TheO2.jpg" alt="Photo of the O2">
-                <div class="card-body">
-                    <p class="card-text">Up at the O2</p>
-                </div>
-            </div>
-             </a>
-        </div>
+        <?php  }; ?>
         <div class="col-md-3 align-self-end">
             <a href='?controller=post&action=readAll'>
        <button type="submit" class="btn btn-primary" id="homepage-view-btn">View all</button>  

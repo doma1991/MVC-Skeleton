@@ -27,7 +27,7 @@
         <!--footer-->
         <footer>
 
-            <div class="navbar sticky-bottom" style="margin-left: 200px; margin-top:50px"> <!-- use 'sticky/fixed' to move it with scrolling-->
+            <div class="navbar sticky-bottom" id="nav-margin"> <!-- use 'sticky/fixed' to move it with scrolling-->
 
                     <div class="container text-align-left" style="margin-top:10px">
                         <div class="row justify-content-center">
@@ -70,7 +70,7 @@
                     </div>   
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-xs" style="font-size:12px; margin-left: 310px">                   
+                            <div class="col-xs" id="copy">                   
                                 Copyright &COPY; Women In Tech <?= date('Y'); ?>. All rights reserved.
                             </div>
                         </div>

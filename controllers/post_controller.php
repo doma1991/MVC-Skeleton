@@ -134,17 +134,7 @@ class PostController {
 //    }
 //}
 //
-//public function topStories() {
-//            $posts = Post::topStories(); //relates in Line 15 in model/product - therefore instantiates new product class
-//            
-//        $topList1 = array_rand($posts);
-//        $topList2 = array_rand($posts);
-//        $topList3 = array_rand($posts);
-//        $randomTopList = array($topList1, $topList2, $topList3);
-//            
-//        require_once('views/posts/nav.php');
-//        require_once('views/pages/home.php'); 
-//}
+
 //
 //}
 

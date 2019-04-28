@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </div></a>
-                        <div class="row justify-content-between" style="width: 18rem;">
+                        <div class="row justify-content-between" id="cards-buttons" style="width: 18rem;">
                             <div class="col-xs-4">
                                <a href='?controller=post&action=update&id=<?php echo $post->id; ?>'>
            <button type="submit" class="btn btn-primary readAll-buttons">Update</button>
