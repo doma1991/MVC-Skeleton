@@ -1,4 +1,5 @@
 <div>
+    <br>
     <h3 style="align-text: center">Add new post</h3>
 </div>
 <div class="paddedBlock">
@@ -9,7 +10,7 @@
     </div>
     <div class="form-group">
         <label class="control-label" for="content"><p><h6>Content of your post:</h6></p></label>
-        <textarea name="content"></textarea>
+        <textarea type="text" id="contentid" name="content"></textarea>
     </div>
     <div class="form-group">
         <label class="control-label"><p><h6>Tag:</h6></p></label>
