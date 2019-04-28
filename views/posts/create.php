@@ -1,21 +1,19 @@
 <div>
-    <h3>Add new post</h3>
-
+    <br>
+    <h3 style="align-text: center">Add new post</h3>
 </div>
-<center>
 <div class="paddedBlock">
-    <form>
-    <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
-    <p>Fill in the following form to create a new post:</p>
+    <form action="?controller=post&action=create" method="POST" class="w3-container" enctype="multipart/form-data">
     <div class="form-group">
-        <label class="control-label"><p>Title of your post: </p></label>
+        <label class="control-label"><p><h6>Title of your post: </h6></p></label>
         <input class="form-control" type="text" name="title" autofocus/>
     </div>
     <div class="form-group">
-        <label class="control-label" for="contentid">Content of your post:</label>
-        <textarea class="form-control" id="contentid" row="5" type="text" name="content"/></textarea>
+        <label class="control-label" for="content"><p><h6>Content of your post:</h6></p></label>
+        <textarea type="text" id="contentid" name="content"></textarea>
     </div>
     <div class="form-group">
+
         <label class="control-label">Tag:</label>
        <select name="tag">
                             <option value="outdoors">Outdoors</option>
@@ -28,16 +26,17 @@
         <input class="form-control" type="submit" name="tag"/>
     </div>
     <div>
+
       <input type="hidden" 
                name="MAX_FILE_SIZE" 
              value="10000000"
              />
 
       <input type="file" name="myUploader" class="btn btn-primary" />
-      <p>
-      <input class="btn btn-primary" type="submit" value="Add Post">
+      <p><br>
+      <input class="btn btn-primary" type="submit" value="Submit">
       </p>
     </div>
+        </center>
     </form>
 </div>
-</center>

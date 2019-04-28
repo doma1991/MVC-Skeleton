@@ -1,6 +1,6 @@
 <div class="container" id="home-page-top-container"> <!--page heading-->
     <div class="row">
-        <div class="col-10">
+        <div class="col-10" style='margin-top:30px'>
             <h1>Discover amazing things to do in London...</h1>
         </div>
         <div class="col-xs-1"></div>
@@ -19,7 +19,7 @@
         </div>
     </form>   
 </div> 
-
+        
 <div class="container" id="cards-container"> <!--cards container -->
     <div class="row">
         <div class="col">
@@ -28,7 +28,7 @@
     </div>
     <div class="row">
         <div class="col-md-3">
-            <a href='?controller=post&action=read&id=2'>
+            <a href='?controller=post&action=read&id=9'>
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="views\images\posts\Greenwich.jpg" alt="Photo of Greenwich ship">
                 <div class="card-body">
@@ -37,7 +37,7 @@
             </div></a>
         </div>
         <div class="col-md-3">
-             <a href='?controller=post&action=read&id=3'>
+             <a href='?controller=post&action=read&id=10'>
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="views\images\posts\ThePostalMuseum.jpg" alt="Photo of the Postal Museum">
                 <div class="card-body">
@@ -47,7 +47,7 @@
              </a>
         </div>
         <div class="col-md-3">
-             <a href='?controller=post&action=read&id=1'>
+             <a href='?controller=post&action=read&id=11'>
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="views\images\posts\TheO2.jpg" alt="Photo of the O2">
                 <div class="card-body">
@@ -64,3 +64,48 @@
     </div>
 </div>
 
+
+            <?php     
+            if (isset($_SESSION['userID'])) {          
+                ?>
+<div class="container" id="cards-container"> <!--cards container -->
+    <div class="row">
+        <div class="col">
+            <h3>Your favourites:</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <a href='?controller=post&action=read&id=12'>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="views\images\posts\42nd Street The Musical.jpg" alt="42nd Street The Musical">
+                <div class="card-body">
+                    <p class="card-text">42nd Street The Musical</p>
+                </div>
+            </div></a>
+        </div>
+        <div class="col-md-3">
+             <a href='?controller=post&action=read&id=13'>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="views\images\posts\Tower of London.jpg" alt="Tower of London">
+                <div class="card-body">
+                    <p class="card-text">Tower of London</p>
+                </div>
+            </div>
+             </a>
+        </div>
+        <div class="col-md-3">
+             <a href='?controller=post&action=read&id=14'>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="views\images\posts\De Havilland Aircraft Museum.jpg" alt="De Havilland Aircraft Museum">
+                <div class="card-body">
+                    <p class="card-text">De Havilland Aircraft Museum</p>
+                </div>
+            </div>
+             </a>
+        </div>
+    </div>
+</div>
+                <?php
+            } else {}
+                ?>       

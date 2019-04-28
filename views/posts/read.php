@@ -1,3 +1,30 @@
+
+<div id="home">
+    <div class="landing-text">
+        <div class="row">
+        <h2><?php echo $post->title; ?></h2>
+        
+        
+        <div id="share-buttons">     
+        <!-- Twitter -->
+        <a href="https://twitter.com/share?url=http://localhost:8000/index.php?controller=post&action=readAll" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+        </a>
+            <!-- Facebook -->
+        <a href="http://www.facebook.com/sharer.php?u=http://localhost:8000/index.php?controller=post&action=readAll" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+         <!-- Reddit -->
+        <a href="http://reddit.com/submit?url=http://localhost:8000/index.php?controller=post&action=readAll" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/reddit.png" alt="Reddit" />
+        </a>
+        </div>
+        </div>
+        <div class="row">
+        <h4><?php echo $post->username; ?></h4>
+        </div>
+    </div>
+</div>
+
 <div class="padding">
     <div class="container">
         <div class="row">

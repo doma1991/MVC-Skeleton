@@ -27,9 +27,9 @@
         <!--footer-->
         <footer>
 
-            <div class="navbar sticky-bottom"> <!-- use 'sticky/fixed' to move it with scrolling-->
+            <div class="navbar sticky-bottom" style="margin-left: 200px; margin-top:50px"> <!-- use 'sticky/fixed' to move it with scrolling-->
 
-                    <div class="container text-align-left">
+                    <div class="container text-align-left" style="margin-top:10px">
                         <div class="row justify-content-center">
                             <div class="col-sm-4 footer-columns" id="firstFooterColumn">
 
@@ -49,7 +49,7 @@
 
                                     <li><a href="?controller=user&action=registration" class="footer-writing">Become a Blogger</a></li>
                                     <li><a href="#" class="footer-writing">About us</a></li>
-                                    <li><a href="#" class="footer-writing">Contact us</a></li>
+                                    <li><a href="mailto:info@london-frolics.com" class="footer-writing">Contact us</a></li>
 
                                 </ul>
                             </div>
@@ -70,7 +70,7 @@
                     </div>   
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-xs">                   
+                            <div class="col-xs" style="font-size:12px; margin-left: 310px">                   
                                 Copyright &COPY; Women In Tech <?= date('Y'); ?>. All rights reserved.
                             </div>
                         </div>

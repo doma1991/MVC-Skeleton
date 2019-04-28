@@ -123,6 +123,10 @@ a {
     color: #495057;
 }
 
+.card-img-top {
+    height: 13rem;
+}
+
 p, a {
     color: #F0F4F8; 
 }
@@ -203,9 +207,15 @@ p, a {
 }
 
 #contentid{
-    height:250px;
-    word-wrap: break-word;
-    word-break: break-all; 
+    width: 100%;
+    height:400px;
+    word-break:break-all;
+    white-space: normal;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-family: 'Cabin';
+    font-size:16px;
+    font-weight:normal;
 }
 
 .control-label{
@@ -236,6 +246,7 @@ p, a {
     margin-left: -16px;
     margin-right: -16px;
 }
+<<<<<<< HEAD
 #post-body {
      padding-top: 20px;
      color: #495057;
@@ -259,3 +270,17 @@ p, a {
    margin-bottom: 30px;
   color: #495057;
 }
+=======
+
+#share-buttons img {
+width: 35px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
+}
+
+#username-text {
+    margin-left: -180px;
+}
+>>>>>>> 979a51c25fa18e0f38aa76e30e32f4b9b76cc865

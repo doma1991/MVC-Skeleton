@@ -75,7 +75,11 @@ class User {
         $db = Db::getInstance();
         $req = $db->prepare("INSERT INTO user (firstName, lastName, email, username, password, phoneNumber, userTypeID) VALUES (:firstName, :lastName, :email, :username, :password, :phoneNumber, :userTypeID)");
         $req->execute(array('firstName' => $firstName, 'lastName' => $lastName, 'email' => $email, 'username' => $username, 'password' => $password, 'phoneNumber' => $phoneNumber, 'userTypeID' => $userTypeID)); 
+        
+        $req = $db->prepare("SELECT * FROM user WHERE username=:username and password=:password");
+        $req->execute(array('username' => $username, 'password' => $password)); 
         $loggedInUser = $req->fetch(); 
+        
         if ($loggedInUser) { 
             
             return new User($loggedInUser['userID'], $loggedInUser['firstName'], $loggedInUser['lastName'], $loggedInUser['email'], $loggedInUser['username'], $loggedInUser['password'], $loggedInUser['phoneNumber'], $loggedInUser['userTypeID']);
