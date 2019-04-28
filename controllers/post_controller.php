@@ -114,12 +114,11 @@ class PostController {
                 
             }
     }
-<<<<<<< HEAD
+
             
 }
-=======
     
-        public function favourites() {
+       // public function favourites() {
         // we expect a url of form ?controller=posts&action=show&id=x
         // without an id we just redirect to the error page as we need the post id to find it in the database
 //        try {
@@ -132,9 +131,9 @@ class PostController {
 //            return call('pages', 'error');
 //        }
 //    }
-}
+//}
 
-public function topStories() {
+//public function topStories() {
 //            $posts = Post::topStories(); //relates in Line 15 in model/product - therefore instantiates new product class
 //            
 //        $topList1 = array_rand($posts);
@@ -144,10 +143,9 @@ public function topStories() {
 //            
 //        require_once('views/posts/nav.php');
 //        require_once('views/pages/home.php'); 
-}
+//}
 
-}
+//}
 
         
         
->>>>>>> 979a51c25fa18e0f38aa76e30e32f4b9b76cc865

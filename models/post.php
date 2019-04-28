@@ -18,9 +18,9 @@ class Post {
     public $date;
     public $postImage;
     public $username;
-    public $tagName;
+   
 
-    public function __construct($id, $title, $tag, $content, $date, $postImage, $username, $tagName) {
+    public function __construct($id, $title, $tag, $content, $date, $postImage, $username) {
         $this->id = $id;
         $this->title = $title;
         $this->tag = $tag;
@@ -28,7 +28,7 @@ class Post {
         $this->date = $date;
         $this->postImage = $postImage;
         $this->username = $username;
-        $this->tagName = $tagName;
+        
     }
 
     public static function all() { //All function set into the array
