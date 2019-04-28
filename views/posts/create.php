@@ -12,7 +12,11 @@
     </div>
     <div class="form-group">
         <label class="control-label" for="contentid"><p><h6>Content of your post:</h6></p></label>
+<<<<<<< HEAD
         <textarea id="contentid"><?= $post->content; ?></textarea>
+=======
+        <textarea class="form-control" id="contentid" row="5" type="text" name="content"/></textarea>
+>>>>>>> d8017fc0a66b68df06cc248296fa0e29fc3e1a06
     </div>
     <div class="form-group">
         <label class="control-label"><p><h6>Tag:</h6></p></label>
