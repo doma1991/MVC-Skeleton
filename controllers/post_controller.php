@@ -52,6 +52,8 @@ class PostController {
             
         }
     }
+    
+    const InputKey = 'myUploader'; //linked to the 'myuploader' form - knows where to get file from
 
     public function update() {
 
@@ -68,7 +70,12 @@ class PostController {
         }
         else {
             $id = $_GET['id'];
-            Post::update($id, $_POST['title'], $_POST['content'], $_POST['title'], $_POST['tag']);
+            if (isset($_FILES) && !empty($_FILES[self::InputKey]['name'])) {
+                $imageName = $_POST['title'];
+            } else {
+                $imageName = null;
+            }
+            Post::update($id, $_POST['title'], $_POST['content'], $imageName, $_POST['tag']);
 
             $posts = Post::all();
             require_once('views/posts/nav.php');

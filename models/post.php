@@ -68,20 +68,24 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
 
     public static function update($id, $title, $content, $postImage, $tag) {
         $db = Db::getInstance();
-        $req = $db->prepare("Update post set title=:title, tagID=:tag, content=:content, postImage=:postImage where postID=:id"); //prepare statement 
+        $sql = "Update post set title=:title, tagID=:tag, content=:content, postImage=:postImage where postID=:id";
+        if($postImage == null) {
+            $sql = "Update post set title=:title, tagID=:tag, content=:content where postID=:id";    
+        }
+        $req = $db->prepare($sql); //prepare statement 
         $req->bindParam(':id', $id); //binds $ID to ID column
         $req->bindParam(':title', $title); //binds $name to name column
         $req->bindParam(':content', $content); //binds $price to price column
-        $req->bindParam(':postImage', $postImage);
+        if($postImage != null) {
+            $postImage = $title . '.jpeg';
+            $req->bindParam(':postImage', $postImage);
+        }
         $req->bindParam(':tag', $tag);
         $req->execute();
-        $postImage = $title . '.jpeg';
-
-        if (!empty($_FILES[self::InputKey]['postImage'])) {
-        Post::uploadFile($title);}
-                else { Post::uploadFile($title);
-	}
-        Post::uploadFile($title);
+        
+        if (isset($_FILES) && !empty($_FILES[self::InputKey]['name'])) {
+            Post::uploadFile($title);
+        }
     }
 
     public static function add($title, $content, $tag) {
