@@ -13,12 +13,12 @@
                     <div class="form-group">
                         <label class="control-label">Tag:</label>
                         <select name="tag">
-                            <option value="outdoors">Outdoors</option>
-                            <option value="easter">Easter</option>
-                            <option value="indoors">Indoors</option>
-                            <option value="cheap">Cheap</option>
-                            <option value="london">London</option>
-                            <option value="family">Family</option>
+                            <option value="1">Outdoors</option>
+                            <option value="2">Easter</option>
+                            <option value="3">Indoors</option>
+                            <option value="4">Cheap</option>
+                            <option value="5">London</option>
+                            <option value="6">Family</option>
                         </select>
                         <input class="form-control" type="submit" name="tag" value="<?= $post->tag; ?>"/>
                     </div>

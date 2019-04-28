@@ -78,11 +78,11 @@ class User {
         
         $req = $db->prepare("SELECT * FROM user WHERE username=:username and password=:password");
         $req->execute(array('username' => $username, 'password' => $password)); 
-        $loggedInUser = $req->fetch(); 
+        $user = $req->fetch(); 
         
-        if ($loggedInUser) { 
+        if ($user) { 
             
-            return new User($loggedInUser['userID'], $loggedInUser['firstName'], $loggedInUser['lastName'], $loggedInUser['email'], $loggedInUser['username'], $loggedInUser['password'], $loggedInUser['phoneNumber'], $loggedInUser['userTypeID']);
+            return new User($user['userID'], $user['firstName'], $user['lastName'], $user['email'], $user['username'], $user['password'], $user['phoneNumber'], $user['userTypeID']);
         
          
         } else {
@@ -91,6 +91,39 @@ class User {
         }
 
     }
+    
+    
+    public static function readProfile($userID) {
+        $db = Db::getInstance();
+        $userID = intval($userID);
+        $req = $db->prepare('SELECT userID, firstName, lastName, email, username, password, phoneNumber, userTypeID FROM user WHERE userID = :userID');
+        $req->execute(array('userID' => $userID));
+        $user = $req->fetch();
+        
+        if ($user) {
+            return new User($user['userID'], $user['firstName'], $user['lastName'], $user['email'], $user['username'], $user['password'], $user['phoneNumber'], $user['userTypeID']);
+        } else {
+            throw new Exception('User does not exist');
+        }
+    }
+    
+    
+      public static function updateProfile($userID, $firstName, $lastName, $email, $username, $phoneNumber) {
+        $db = Db::getInstance();
+        $req = $db->prepare("Update user set firstName=:firstName, lastName=:lastName, email=:email, username=:username, phoneNumber=:phoneNumber WHERE userID=:userID");
+        $req->bindParam(':userID', $userID);
+        $req->bindParam(':firstName', $firstName);
+        $req->bindParam(':lastName', $lastName);
+        $req->bindParam(':email', $email);
+        $req->bindParam(':username', $username);
+        $req->bindParam(':phoneNumber', $phoneNumber);    
+        $req->execute();
+        
+    }
+
+     
+ 
+ 
     
 //    public static function myPosts($userID) {
 //        $db = Db::getInstance();
