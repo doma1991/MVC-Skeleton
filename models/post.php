@@ -66,7 +66,9 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
         }
     }
 
-    public static function update($id, $title, $content, $postImage, $tag) {
+    public static function update($id, $title, $content, $postImage, $tag) {        
+        $path = "";
+        $postImage = $path . $title . '.jpeg';
         $db = Db::getInstance();
         $req = $db->prepare("Update post set title=:title, tagID=:tag, content=:content, postImage=:postImage where postID=:id"); //prepare statement 
         $req->bindParam(':id', $id); //binds $ID to ID column
@@ -75,7 +77,7 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
         $req->bindParam(':postImage', $postImage);
         $req->bindParam(':tag', $tag);
         $req->execute();
-        $postImage = $title . '.jpeg';
+
 
         if (!empty($_FILES[self::InputKey]['postImage'])) {
         Post::uploadFile($title);}
@@ -83,6 +85,8 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
 	}
         Post::uploadFile($title);
     }
+    
+     
 
     public static function add($title, $content, $tag) {
         $db = Db::getInstance();
@@ -114,6 +118,7 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
         $title = $filteredTitle;
         $content = $filteredContent;
         $tag = $filteredTag;
+        
 
         $req->execute();
         $newPostId = $db->lastInsertId();
@@ -153,16 +158,14 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
 
         $postImage = $path . $title . '.jpeg';
 
-        if (!move_uploaded_file($tempFile, $destinationFile)) { //FIX THIS, NOT WORKING
-            trigger_error("Handle Error");
-        }
+        move_uploaded_file($tempFile, $destinationFile);
 
         //Clean up the temp file
         if (file_exists($tempFile)) {
             unlink($tempFile);
         }
     }
-
+    
     public static function remove($id) {
         $db = Db::getInstance();
         //make sure $id is an integer
@@ -210,29 +213,6 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
 
     }
 
-//public static function favourites($id) {
-//        $db = Db::getInstance(); //Connects to database through already established connection
-//        //use intval to make sure $id is an integer
-//        $id = intval($id); //validates that ID is actually an integer - returns integer value of the variable
-//        $req = $db->prepare('SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username FROM user as u
-//inner JOIN
-//user_post
-//as UP
-//on u.userID=up.userID
-//inner JOIN
-//post
-//as p
-//on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns all values WHERE postID = :postID
-//        //the query was prepared, now replace :id with the actual $id value
-//        $req->execute(array('postID' => $id)); //array of results
-//        $blogPost = $req->fetch(); //assigns results to product
-//        if ($blogPost) { //if Post exists create new class
-//            return new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']); //AMEND as not testing for anything useful 
-//        } else {
-//            //replace with a more meaningful exception
-//            throw new Exception('A real exception should go here'); //AMEND to 'product does not exist etc.'
-//        }  
-//}
 
         public static function topStories() { //All function set into the array
             $list = [];
