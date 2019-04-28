@@ -74,17 +74,15 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
         $req->bindParam(':content', $content); //binds $price to price column
         $req->bindParam(':postImage', $postImage);
         $req->bindParam(':tag', $tag);
-
+        $req->execute();
         $postImage = $title . '.jpeg';
-   
-        
-        Post::uploadFile($title);
-        
-      
-        
+
+        if (!empty($_FILES[self::InputKey]['postImage'])) {
+        Post::uploadFile($title);}
+                else { Post::uploadFile($title);
+	}
     }
-    
-    
+      
 
     public static function add($title, $content, $tag) {
         $db = Db::getInstance();

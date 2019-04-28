@@ -20,7 +20,7 @@
                             <option value="5">London</option>
                             <option value="6">Family</option>
                         </select>
-                        <input class="form-control" type="submit" name="tag" value="<?= $post->tag; ?>"/>
+                        
                     </div>
                     <br><br><br>
                     <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
