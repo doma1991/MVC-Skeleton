@@ -3,7 +3,7 @@
             <div class="d-flex flex-grow-1">
                 <span class="w-100 d-lg-none d-block"></span>
 
-               <a class="navbar-brand d-none d-lg-inline-block" href="#">
+               <a class="navbar-brand d-none d-lg-inline-block" href="?controller=pages&action=home">
                <img src="views/images/new-logo.png" alt="" width="50px" height="50px"/>
                <a id="blog-name"> LONDON FROLICS </a>
                </a>
