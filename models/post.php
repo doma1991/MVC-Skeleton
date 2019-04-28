@@ -81,8 +81,8 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
         Post::uploadFile($title);}
                 else { Post::uploadFile($title);
 	}
+        Post::uploadFile($title);
     }
-      
 
     public static function add($title, $content, $tag) {
         $db = Db::getInstance();

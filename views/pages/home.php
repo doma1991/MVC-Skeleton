@@ -50,7 +50,7 @@ function login(){
 <div class="container" id="cards-container"> <!--cards container -->
     <div class="row">
         <div class="col">
-            <h3>Top stories this week:</h3>
+            <h3>Top stories:</h3>
         </div>
     </div>
     <div class="row">

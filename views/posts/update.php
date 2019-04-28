@@ -13,14 +13,15 @@
                     <div class="form-group">
                         <label class="control-label"><h6>Tag:</h6></label>
                         <select name="tag">
-                            <option value="1">Outdoors</option>
-                            <option value="2">Easter</option>
-                            <option value="3">Indoors</option>
-                            <option value="4">Cheap</option>
-                            <option value="5">London</option>
-                            <option value="6">Family</option>
+                                 <option value="1">Family</option>
+                            <option value="2">Christmas</option>
+                            <option value="3">Easter</option>
+                            <option value="4">Outdoors</option>
+                            <option value="5">Indoors</option>
+                            <option value="6">Cheap</option>
+                            <option value="7">London</option>
                         </select>
-                        
+
                     </div>
                     <br><br><br>
                     <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
