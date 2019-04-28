@@ -18,7 +18,6 @@ class Post {
     public $date;
     public $postImage;
     public $username;
-//    public $tagName;
 
     public function __construct($id, $title, $tag, $content, $date, $postImage, $username) {
         $this->id = $id;
@@ -28,13 +27,12 @@ class Post {
         $this->date = $date;
         $this->postImage = $postImage;
         $this->username = $username;
-//        $this->tagName = $tagName;
     }
 
     public static function all() { //All function set into the array
         $list = [];
         $db = Db::getInstance(); //Instantiates database connection - once 'item' is loaded then starts the connection
-        
+
         $req = $db->query("SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username FROM user as u inner JOIN user_post as up on u.userID=up.userID inner JOIN post as p on up.postID=p.postID");
         //$req = $db->query('CALL readAll();');
         // we create a list of Product objects from the database results
@@ -43,7 +41,6 @@ class Post {
         }
         return $list;
     }
-
 
     public static function find($id) {
         $db = Db::getInstance(); //Connects to database through already established connection
@@ -79,7 +76,7 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
         $req->bindParam(':tag', $tag);
         //binding allows the variable to be used rather than retyping prepare statement each time
 // set name and price parameters and execute
-        $postImage =  $title . '.jpeg';
+        $postImage = $title . '.jpeg';
         $req->execute();
 
 
@@ -87,9 +84,9 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
 //        if (!empty($_FILES[self::InputKey]['title'])) { //Self refers to itself in the class
 //            Product::uploadFile($title); //If the superglobal file is not empty, then assign constant inputkey name
 //        } //Product::uploadFile is calling upon uploadfile function and does the error checking
-   
+
         Post::uploadFile($title);
-   }
+    }
 
     public static function add($title, $content, $tag) {
         $db = Db::getInstance();
@@ -178,18 +175,18 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
         // the query was prepared, now replace :id with the actual $id value
         $req->execute(array('id' => $id));
     }
-    
+
     public function search($searchTerm) {
         $db = Db::getInstance();
         $req = $db->prepare("SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username "
                 . " FROM user as u inner JOIN user_post as UP on u.userID=up.userID inner JOIN post as p "
                 . "on up.postID=p.postID WHERE p.title LIKE CONCAT('%',:title,'%')");
-        $req ->execute(array('title' => $searchTerm));
+        $req->execute(array('title' => $searchTerm));
         $posts = [];
-        foreach ($req->fetchAll() as $blogPost) { 
+        foreach ($req->fetchAll() as $blogPost) {
             array_push($posts, new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']));
         }
-        
+
         if (empty($posts)) {
             return null;
 //       return "No results for $title.";
@@ -197,25 +194,25 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
             return $posts;
         }
     }
-    
-            public static function myPosts($userID) {
+
+    public static function myPosts($userID) {
         $db = Db::getInstance();
         $req = $db->prepare("SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username "
                 . " FROM user as u inner JOIN user_post as UP on u.userID=up.userID inner JOIN post as p "
                 . "on up.postID=p.postID WHERE u.userID = :userID");
         $req->bindParam(':userID', $userID);
-        $req ->execute();
+        $req->execute();
         $posts = [];
-        foreach ($req->fetchAll() as $blogPost) { 
+        foreach ($req->fetchAll() as $blogPost) {
             array_push($posts, new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']));
         }
-                if (empty($posts)) {
+        if (empty($posts)) {
             return null;
         } else {
             return $posts;
         }
-            
-}
+
+    }
 
 //public static function favourites($id) {
 //        $db = Db::getInstance(); //Connects to database through already established connection
@@ -241,20 +238,21 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
 //        }  
 //}
 
-    public static function topStories() { //All function set into the array
-        $list = [];
-        $db = Db::getInstance(); //Instantiates database connection - once 'item' is loaded then starts the connection
-        
-        $req = $db->query("SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username FROM user as u inner JOIN user_post as up on u.userID=up.userID inner JOIN post as p on up.postID=p.postID");
-        //$req = $db->query('CALL readAll();');
-        // we create a list of Product objects from the database results
-        foreach ($req->fetchAll() as $blogPost) { //NEED TO CHANGE FETCH ALL
-            $list[] = new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']);
+        public static function topStories() { //All function set into the array
+            $list = [];
+            $db = Db::getInstance(); //Instantiates database connection - once 'item' is loaded then starts the connection
+
+            $req = $db->query("SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username FROM user as u inner JOIN user_post as up on u.userID=up.userID inner JOIN post as p on up.postID=p.postID");
+            //$req = $db->query('CALL readAll();');
+            // we create a list of Product objects from the database results
+            foreach ($req->fetchAll() as $blogPost) { //NEED TO CHANGE FETCH ALL
+                $list[] = new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']);
+            }
+            return $list;
         }
-return $list;
     }
 
-}
 
-//}
 
+
+    

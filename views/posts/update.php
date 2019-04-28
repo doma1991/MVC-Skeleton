@@ -1,15 +1,14 @@
 <center>
-    <h3>Update your post</h3>
+    <h3 style="margin-top: 50px">Update your post</h3>
     <div class="paddedBlock">
         <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
-            <p><h5>Update your blog below:<h5></p>
                     <div class="form-group">
                         <label class="control-label">Title:</label>
                         <input class="form-control" type="text" name="title" autofocus value="<?= $post->title; ?>"/>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="content">Content</label>
-                        <textarea name="content"><?= $post->content; ?></textarea>
+                        <textarea name="content" id="contentid"><?= $post->content; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Tag:</label>
