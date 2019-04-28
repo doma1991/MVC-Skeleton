@@ -13,7 +13,15 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">Tag:</label>
-                        <input class="form-control" type="text" name="tag" value="<?= $post->tag; ?>"/>
+                        <select name="tag">
+                            <option value="outdoors">Outdoors</option>
+                            <option value="easter">Easter</option>
+                            <option value="indoors">Indoors</option>
+                            <option value="cheap">Cheap</option>
+                            <option value="london">London</option>
+                            <option value="family">Family</option>
+                        </select>
+                        <input class="form-control" type="submit" name="tag" value="<?= $post->tag; ?>"/>
                     </div>
                     <br><br><br>
                     <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
