@@ -79,7 +79,7 @@ class PostController {
 
             $posts = Post::all();
             require_once('views/posts/nav.php');
-            require_once('views/posts/readAll.php');
+            require_once('views/posts/myposts.php');
             
         }
     }
@@ -121,7 +121,12 @@ class PostController {
                 
             }
     }
-
+    
+    public function findTag(){
+         $posts = Post::findTag($_GET['tag']); // similar to readAll - get ID and display in viewer
+            require_once('views/posts/nav.php');
+            require_once('views/posts/searchTag.php');
+    }
             
 }
     

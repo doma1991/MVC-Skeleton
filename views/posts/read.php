@@ -20,7 +20,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <a id="post-tag" class="btn btn-default" ><?php
+                    <a href="?controller=post&action=findTag&tag=<?php echo $post->tag; ?>"><button id="post-tag" class="btn btn-default" ><?php
                         switch ($post->tag) {
                             case '1':
                                 echo "FAMILY";
@@ -45,7 +45,7 @@
                         }
                         ?>
 
-                    </a>
+                        </button></a>
                 </div>
             </div>
         </div>

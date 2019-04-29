@@ -48,7 +48,7 @@
                                 <ul class="list-unstyled">
 
                                     <li><a href="?controller=user&action=registration" class="footer-writing">Become a Blogger</a></li>
-                                    <li><a href="#" class="footer-writing">About us</a></li>
+                                    <li><a href="?controller=pages&action=error" class="footer-writing">About us</a></li>
                                     <li><a href="mailto:info@london-frolics.com" class="footer-writing">Contact us</a></li>
 
                                 </ul>

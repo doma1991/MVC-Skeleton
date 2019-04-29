@@ -230,9 +230,26 @@ on up.postID=p.postID inner join tag on tag.tagID = p.tagID WHERE p.postID = :po
             }
             return $list;
         }
+        
+            public static function findTag($tag) {
+        $db = Db::getInstance();
+        $req = $db->prepare("SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username "
+                . " FROM user as u inner JOIN user_post as UP on u.userID=up.userID inner JOIN post as p "
+                . "on up.postID=p.postID WHERE p.tagID = :tag");
+        $req->execute(array('tag' => $tag));
+        $posts = [];
+        foreach ($req->fetchAll() as $blogPost) {
+            array_push($posts, new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']));
+        }
+
+        if (empty($posts)) {
+            return null;
+//       return "No results for $title.";
+        } else {
+            return $posts;
+        }
     }
-
-
-
+        
+    }
 
     
